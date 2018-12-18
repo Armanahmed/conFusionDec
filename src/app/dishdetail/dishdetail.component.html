@@ -43,6 +43,13 @@ fxLayoutGap.xs="0">
          <span> {{comment.date | date: shortdate}} </span>
        </p>
      </mat-list-item>
+     <mat-list-item *ngIf="(commentForm.dirty && commentForm.valid)">
+      <p matLine> {{commentForm.value.comment}} </p>
+      <p matLine> {{commentForm.value.rating}} Stars</p>
+      <p matLine >
+      <span>-- {{commentForm.value.author}} </span>
+      </p>
+    </mat-list-item>
    </mat-list>
    <form novalidate [formGroup]="commentForm" #cform="ngForm" (ngSubmit)="onSubmit()">
       <p>
